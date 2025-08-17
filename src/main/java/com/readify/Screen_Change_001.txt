@@ -1,0 +1,131 @@
+GUI changes:
+
+a.	API fetches the xml data and saves it to DB.
+B.	Another screen to the have the following attributes on the screen: 
+
+	duration : 
+| Metric                     | Value (example)      |						--okay.
+| -------------------------- | -------------------- |
+| 🔼 Highest Monthly Income  | ₹1,45,000 (Mar 2025) |			---> highest income of the month. Plot all credit and group it via month. Find the highest. 
+| 🔽 Lowest Monthly Balance  | ₹1,500 (Jan 2025)    |			---> Find balance of every month (summation of income - summation of debit) find the lowest.
+| 📤 Avg. Monthly Expense    | ₹52,400              |			---> Find all debits from month, group by month, find average of the same. 
+| 💰 Avg. Monthly Savings    | ₹22,300              |			---> Find income and expense per month, 
+| ⚖️ Income-to-Expense Ratio | 1.8 : 1              |			---> every month find the income divide by expense ratio.
+
+
+JSON is having date and flag(Credit or Debit). 
+	Add data per month, 
+	find the highest income month.
+	find balance for every month. 
+	find all debits per month, and divide by number of months. 
+	find difference credit and debit per month.
+	find credit(per month)/debit per month.
+
+
+
+Income-to-Expense Ratio (IER)	-- for every month.						--okay
+Formula:Monthly Net Income / Monthly Total Expenses
+Purpose: Measures surplus cash available for loan repayment.
+Ideal Benchmark: >1.5 is generally good; <1 is risky.
+
+--> Explained above.
+
+💸 2. Savings Consistency Ratio (SCR)
+Formula: Number of Months with Net Savings / Total Months Analyzed				-- okay
+Purpose: Indicates discipline and ability to retain cash month-over-month.
+Ideal Benchmark: >70% (i.e., savings in at least 8–9 months out of 12)
+	savings = Net income - net expenses, when it is positive, it is saving
+	---> When savings > 0, we have a month with savings.
+		divide (+ve savings) with number of months.
+	
+
+📉 3. Monthly Cash Balance Buffer Ratio. 							-- with Bureau--Need bureau data.
+Formula: Average Month-End Balance / Monthly EMI Obligation
+Purpose: Determines if borrower maintains enough buffer to handle repayments.
+Ideal Benchmark: ≥2× EMI buffer recommended
+	-
+
+
+📈 4. Income Volatility Index									-- okay
+Formula: Standard Deviation of Monthly Income / Average Monthly Income
+Purpose: Captures how stable the income is. High volatility is risky.
+Ideal Benchmark: <0.25 preferred for salaried; up to 0.5 for self-employed.
+	
+	---> From table 1, above, we monthly income , we need to find difference from same, 
+	Find the average of the earning. 
+	Monthly earning (Credit) - Avg of Earning, that is deviation. 	
+
+💼 5. Debit Transaction Ratio (DTR)								-- okay
+Formula: Total Debits / Total Credits (monthly or averaged)
+Purpose: If close to or >1, borrower may be living paycheck-to-paycheck.
+Ideal Benchmark: <0.9 suggests positive monthly cash retention.
+	Again, similar to above calculation, we need to find total(debit)/total(Credit), 
+	
+	---> We have debits, credits per month.
+	---> Take a ratio of debit, credit. 
+	
+
+======senior manager 
+6. Obligation Coverage Ratio (OCR)								-- with Bureau data
+Formula:Net Monthly Income / (EMI + Other Fixed Obligations)
+Purpose: Assesses borrower’s ability to meet debt obligations.
+Benchmark: ≥1.25 preferred; <1 indicates risk of default.
+
+7. Account Balance Stability Ratio (ABSR)							--- okay (defer) 
+Formula:Standard Deviation of Daily Balances / Average Balance					
+Purpose: Detects erratic cash flow or overdraft tendencies.
+Interpretation: Lower ratio = more consistent balance behavior.					
+	--> Defer: we need to find balance per day which is needed. 
+
+		
+
+8. Bounce Frequency Ratio (BFR)									--- with bureau data
+Formula:Number of Cheque/Auto-Debit Bounces / Total Debits
+Purpose: Signals financial distress or poor discipline.
+Benchmark: Ideally 0; >2–3 per year raises red flags.
+
+9. Cash-to-Credit Ratio										-- okay.
+Formula:
+ATM Withdrawals + Cash Debits / Total Debits
+Purpose: Indicates cash-heavy behavior, often linked to informal income.
+Interpretation:
+40% = Possibly informal income or tax evasion
+<10% = Likely salaried or digital-savvy borrower
+ATM Withdrawals + Cash Debits / Total Debits
+	---> From the text: we have two handles: DEBIT, and MODE (ATM, UPI)
+	List all values when it is DEBIT and ATM , pick that value, divide the same with total debit.
+	
+
+10. End-of-Month Low Balance Frequency								--- okay.
+Formula:Number of Months with EOM Balance < ₹1,000 / Total Months
+Purpose: Highlights risk of financial exhaustion.
+Red Flag: >3 out of 12 months
+	---> Month with low balance frequency, at the find sum (Credit) - sum(debit) per month, 
+	if balance < 1000, it low balance, total low balance months.
+	
+
+
+11. Inward vs Outward UPI Ratio									--- okay.
+Formula:Value of UPI Inflows / Value of UPI Outflows
+Purpose: Behavioral insight on digital financial habits.
+Interpretation: High ratio suggests active digital income; 
+low may indicate cash usage or shadow lending.
+	---> You type (CREDIT/DEBIT) and mode (UPI), 
+	need (Sum (CREDIT for UPI)) /(sum (DEBIT for UPI))
+
+12. Recurring Deposit Behavior Index								--- okay(Defer)
+Formula:Number of Months with Deposits into RD/FD/SIPs / Total Months
+Purpose: Indicates forward-looking financial discipline and saving behavior.
+	---> Not possible now. 
+
+
+| Behavior                | Ratio(s) Used                             | What It Indicates                       |
+| ----------------------- | ----------------------------------------- | --------------------------------------- |
+| Repayment capacity      | OCR, IER                                  | Can borrower handle EMI load?           |
+| Income stability        | Income Volatility, Recurring Credit Ratio | Seasonal vs steady income?              |
+| Financial discipline    | BFR, ABSR, Savings Consistency            | Risk of bounce/default                  |
+| Liquidity cushion       | Balance Buffer, EOM Low Balance Frequency | Enough cash to absorb shocks?           |
+| Credit appetite & usage | Debit/Credit Ratio, UPI Ratios            | Underleveraged vs financially stretched |
+
+
+
